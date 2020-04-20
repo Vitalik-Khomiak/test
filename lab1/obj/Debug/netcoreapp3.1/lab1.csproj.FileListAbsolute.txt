@@ -1,0 +1,11 @@
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\bin\Debug\netcoreapp3.1\lab1.exe
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\bin\Debug\netcoreapp3.1\lab1.deps.json
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\bin\Debug\netcoreapp3.1\lab1.runtimeconfig.json
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\bin\Debug\netcoreapp3.1\lab1.runtimeconfig.dev.json
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\bin\Debug\netcoreapp3.1\lab1.dll
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\bin\Debug\netcoreapp3.1\lab1.pdb
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\obj\Debug\netcoreapp3.1\lab1.csprojAssemblyReference.cache
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\obj\Debug\netcoreapp3.1\lab1.AssemblyInfoInputs.cache
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\obj\Debug\netcoreapp3.1\lab1.AssemblyInfo.cs
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\obj\Debug\netcoreapp3.1\lab1.dll
+C:\Users\Him_soul_lost\Desktop\filles\lab1\lab1\obj\Debug\netcoreapp3.1\lab1.pdb
