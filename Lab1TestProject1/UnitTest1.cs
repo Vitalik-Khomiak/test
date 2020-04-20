@@ -10,7 +10,7 @@ namespace Lab1TestProject1
         {
             string n = "Autumn";
             int resultsum = lab1.Program.main(n);
-            Assert.AreEqual(9, resultsum);
+            Assert.AreEqual(1, resultsum);
 
            
         }
