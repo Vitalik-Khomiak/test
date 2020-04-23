@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Him_soul_lost\\Desktop\\Нова папка\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\Him_soul_lost\\Documents\\GitHub\\test\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\Him_soul_lost\\Desktop\\Нова папка\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectPath": "C:\\Users\\Him_soul_lost\\Documents\\GitHub\\test\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\Him_soul_lost\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Him_soul_lost\\Desktop\\Нова папка\\ConsoleApp1\\ConsoleApp1\\obj\\",
+      "outputPath": "C:\\Users\\Him_soul_lost\\Documents\\GitHub\\test\\ConsoleApp1\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Him_soul_lost\\AppData\\Roaming\\NuGet\\NuGet.Config",
