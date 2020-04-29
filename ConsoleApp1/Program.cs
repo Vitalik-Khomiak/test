@@ -6,19 +6,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int x = -90;
-            Console.WriteLine($"| x  \t||    f(x) \t\t\t|");
+            double x_r, y;
+            double x;
+            Console.Write("x = ");
+            double Pi = Math.PI;
+            x = double.Parse(Console.ReadLine());
+
             do
             {
 
-                double y = Math.Pow(x, 2) * Math.Cos(x);
+                x_r = (Pi / 180) * x;
 
+                y = Math.Pow(x_r, 2) * Math.Cos(x_r);
 
-                Console.WriteLine($"|{x}  \t||    {y} \t|");
+                double y_e = Math.Round(y, 4);
+                Console.WriteLine($"|{x}  \t||    {y_e} \t|");
                 x += -18;
 
-            } while ( x >= -270 && x <= -90 );
-
+            } while (x >= -270 && x <= -90);
         }
     }
 }
