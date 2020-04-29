@@ -1,128 +1,59 @@
 ﻿using System;
-
-namespace ConsoleApp1
+using System.IO; // 1
+namespace ConsoleApplication1
 {
-    public class Program
+    class Class1
     {
-        public static void ValsGenerator(int[] Vals)
+        static int s1;
+        static int s2;
+        static int s3;
+
+        static void Main()
         {
-            // Random - клас для генерації випадкових чисел
-            Random aRand = new Random();
-            // заповнення масиву
-            for (int i = 0; i < Vals.Length; i++)
-                Vals[i] = aRand.Next(100);
+            StreamWriter f = new StreamWriter("MyFile.txt"); // 2                    
+            s1 = 5;
+            s2 = 7;
+            s3 = 9;
+
+            f.Write(s1 + " "); // 4
+            f.Write(s2 + " ");
+            f.Write(s3);
+            f.Close();
+            main2();
         }
-        public static int test1(int[] Data)
+        static void main2()
         {
-            int x = 0;
-            
-            for (int i = 0; i < Data.Length; i++)
+            string d;
+            int a, b, c;
+            using (StreamReader f = new StreamReader("MyFile.txt")) { d = f.ReadToEnd(); }
+
+
+
+            string[] words = d.Split(' ');
+            a = Int32.Parse(words[0]);
+            b = Int32.Parse(words[1]);
+            c = Int32.Parse(words[2]);
+
+            using (StreamWriter f = new StreamWriter("MyFile.txt", true))
             {
-                if (Data[i] < 7)
+               
+
+                if (a + b > c && a + c > b && b + c > a)
                 {
+                    Console.WriteLine("ТРИКУТНИК");
 
-                    x++;
-                }
-            }
-            Console.WriteLine("Менше 7=" + x);
-            return x;
-        }
+                    f.WriteLine("\nТрикутник");
 
-
-
-        public static void test2(int[] Data)
-        {
-            for (int i = 0; i < Data.Length; i++)
-            {
-                int dob = 1;
-                if (Data[i] == 0)
-                {
-                    int first = i + 1;
-                    for (int j = first; j < Data.Length; j++)
-                    {
-                        if (Data[j] == 0)
-                        {
-                            int second = j;
-                            for (int g = first; g < second; g++)
-                            {
-                                dob *= Data[g];
-                            }
-                            Console.WriteLine("dob ="+dob);
-                            
-                            break;
-                        }
-                        else
-                        {
-                           
-                        }
-                    }
-                    break;
                 }
                 else
                 {
-                    
+                    Console.WriteLine("не ТРИКУТНИК");
+
+                    f.WriteLine("\nнеТрикутник");
                 }
+
             }
-           
-        }
-
-
-
-        public static void test3(int[]data)
-        {
-
-            int x = 0;
-            const int N = 10;
-            int[] Data_a = new int[N];
-
-
-
-            ValsGenerator(Data_a);
-            Array.Sort(Data_a);
-            Console.WriteLine("Друк вiдсортованих даних");
-            for (int i = 0; i < Data_a.Length; i++)
-            {
-                Console.WriteLine("Data[" + i + "] = " + Data_a[i]);
-            }
-            for (int i = 0; i < 8; i++)
-            {
-                if (Data_a[i] < 7)
-                {
-                    x++;
-                }
-            }
-            Console.WriteLine("менше 7 =" + x);
-            Console.ReadLine();
-
-        }
-
-
-
-        public static void Main()
-        {
-
-            Console.WriteLine("Виберіть метод 1- вручну 0 - рандом");
-            int c = Convert.ToInt32(Console.ReadLine());
-            int N = 4;
-            int[] Data = new int[N];
-            for (int j = 0; j < Data.Length; j++)
-            {
-                Console.Write($"Data[{j}]=");
-                Data[j] = Convert.ToInt32(Console.ReadLine());
-            }
-            
-            if (c == 1)
-            {
-                test1(Data);
-                test2(Data);
-            }
-
-            else
-            {
-                test3(Data);
-            }
-            
         }
     }
-
 }
+
