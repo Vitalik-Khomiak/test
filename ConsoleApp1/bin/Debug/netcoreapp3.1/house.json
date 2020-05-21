@@ -1,0 +1,72 @@
+﻿[
+  {
+    "Surname": "Пригода",
+    "Housenumber": "41",
+    "Flatnumber": "34",
+    "Sex": "Чоловіча",
+    "Suma": "5000"
+  },
+  {
+    "Surname": "Хом'як",
+    "Housenumber": "14",
+    "Flatnumber": "21",
+    "Sex": "Чоловіча",
+    "Suma": "2000"
+  },
+  {
+    "Surname": "Мішакін",
+    "Housenumber": "53",
+    "Flatnumber": "16",
+    "Sex": "Чоловіча",
+    "Suma": "9000"
+  },
+  {
+    "Surname": "Бозів",
+    "Housenumber": "45",
+    "Flatnumber": "32",
+    "Sex": "Жіноча",
+    "Suma": "4500"
+  },
+  {
+    "Surname": "Рибак",
+    "Housenumber": "24",
+    "Flatnumber": "22",
+    "Sex": "Чоловіча",
+    "Suma": "2050"
+  },
+  {
+    "Surname": "Лобойко",
+    "Housenumber": "67",
+    "Flatnumber": "62",
+    "Sex": "Жіноча",
+    "Suma": "2040"
+  },
+  {
+    "Surname": "Князів",
+    "Housenumber": "24",
+    "Flatnumber": "22",
+    "Sex": "Чоловіча",
+    "Suma": "6000"
+  },
+  {
+    "Surname": "Петров",
+    "Housenumber": "24",
+    "Flatnumber": "22",
+    "Sex": "Чоловіча",
+    "Suma": "7000"
+  },
+  {
+    "Surname": "Дубіщак",
+    "Housenumber": "24",
+    "Flatnumber": "22",
+    "Sex": "Чоловіча",
+    "Suma": "4000"
+  },
+  {
+    "Surname": "Чабак",
+    "Housenumber": "24",
+    "Flatnumber": "22",
+    "Sex": "Жіноча",
+    "Suma": "5000"
+  }
+]
