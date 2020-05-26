@@ -1,0 +1,44 @@
+﻿[
+  {
+    "Date": "2020-03-29T00:00:00",
+    "BookOutCount": 5,
+    "BookInCount": 12,
+    "Name": "Name",
+    "Address": "Ad"
+  },
+  {
+    "Date": "2020-03-30T00:00:00",
+    "BookOutCount": 4,
+    "BookInCount": 2,
+    "Name": "Name2",
+    "Address": "Dress"
+  },
+  {
+    "Date": "2020-03-31T00:00:00",
+    "BookOutCount": 1,
+    "BookInCount": 2,
+    "Name": "Name3",
+    "Address": "dr"
+  },
+  {
+    "Date": "2020-04-01T00:00:00",
+    "BookOutCount": 6,
+    "BookInCount": 1,
+    "Name": "name4",
+    "Address": "re"
+  },
+  {
+    "Date": "2000-02-01T00:00:00",
+    "BookOutCount": 888,
+    "BookInCount": 888,
+    "Name": "bOOK",
+    "Address": "bOoK"
+  },
+  {
+    "Date": "2001-10-02T00:00:00",
+    "BookOutCount": 7,
+    "BookInCount": 5,
+    "Name": "Boook",
+    "Address": "Lukasha"
+  }
+]
