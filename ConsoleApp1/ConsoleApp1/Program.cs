@@ -1,186 +1,266 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+using Newtonsoft.Json;
 
 namespace ConsoleApp1
+
 {
-   
-        class student
+
+    public abstract class Library
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public abstract void MidlleBookMove(List<WorkingDay> Days);
+        public abstract void CountOfBookMore(List<WorkingDay> Days);
+        public abstract int PairReturned(List<WorkingDay> Days);
+    }
+    public class WorkingDay : Library
+    {
+        public DateTime Date { get; set; }
+        public int BookOutCount { get; set; }
+        public int BookInCount { get; set; }
+        public override void MidlleBookMove(List<WorkingDay> Days)
         {
-            private string name;
-            private string lastName;
-            private string group;
-            private string year;
-            private string adress;
-            private string passport;
-            private string age;
-            private string telehone;
-            private string rating;
-
-            public string Name
+            Console.Clear();
+            Console.WriteLine("Enter earlier date like 01.02.2000");
+            var date1 = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+            Console.WriteLine("Enter later date like 01.02.2000");
+            var date2 = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+            for (int i = 0; i < Days.Count; i++)
             {
-                get { return name; }
-                set { name = value; }
-            }
-            public string LastName
-            {
-                get
+                for (int k = 0; k < Days.Count; k++)
                 {
-                    return lastName;
-                }
-                set
-                {
-                    lastName = value;
+                    if (Days[i].Date < Days[k].Date)
+                    {
+                        var Temp = Days[k];
+                        Days[k] = Days[i];
+                        Days[i] = Temp;
+                    }
                 }
             }
-            public string Group
+            float count = 0;
+            float Move = 0;
+            for (int i = 0; i < Days.Count; i++)
             {
-                get
+                if (Days[i].Date > date1 && Days[i].Date < date2)
                 {
-                    return group;
-                }
-                set
-                {
-                    group = value;
+                    Move += (Days[i].BookInCount + Days[i].BookOutCount);
+                    count++;
                 }
             }
-            public string Year
-            {
-                get
-                {
-                    return year;
-                }
-                set
-                {
-                    year = value;
-                }
-            }
-            public string Adress
-            {
-                get
-                {
-                    return adress;
-                }
-                set
-                {
-                    adress = value;
-                }
-            }
-            public string Passport
-            {
-                get
-                {
-                    return passport;
-                }
-                set
-                {
-                    passport = value;
-                }
-            }
-            public string Age
-            {
-                get
-                {
-                    return age;
-                }
-                set
-                {
-                    age = value;
-                }
-            }
-            public string Telehone
-            {
-                get
-                {
-                    return telehone;
-                }
-                set
-                {
-                    telehone = value;
-                }
-            }
-            public string Rating
-            {
-                get
-                {
-                    return rating;
-                }
-                set
-                {
-                    rating = value;
-                }
-            }
+            Console.WriteLine("The average movement of books per day for the period :" + Move / count);
+            Console.ReadKey();
         }
-
-        public class Program
+        public override void CountOfBookMore(List<WorkingDay> Days)
         {
-        
-             
-        static void Main()
+            List<WorkingDay> Cut = new List<WorkingDay>();
+            foreach (WorkingDay d in Days)
             {
-            student student = new student();
-          
-
-         
-                Console.Write("Name : ");
-                student.Name = Console.ReadLine();
-                Console.Write("LastName : ");
-                student.LastName = Console.ReadLine();
-                Console.Write("Group : ");
-                student.Group = Console.ReadLine();
-                Console.Write("Year : ");
-                student.Year = Console.ReadLine();
-                Console.Write("Adress : ");
-                student.Adress = Console.ReadLine();
-                Console.Write("Passport : ");
-                student.Passport = Console.ReadLine();
-                Console.Write("Age : ");
-                student.Age = Console.ReadLine();
-                Console.Write("Telehone : ");
-                student.Telehone = Console.ReadLine();
-                Console.Write("Rating : ");
-                student.Rating = Console.ReadLine();
-                string Raiting = student.Rating;
-
-                Console.WriteLine();
-                Console.WriteLine("Name \t\t: " + student.Name);
-                Console.WriteLine("LastName\t: " + student.LastName);
-                Console.WriteLine("Group\t\t: " + student.Group);
-                Console.WriteLine("Year\t\t: " + student.Year);
-                Console.WriteLine("Adress\t\t: " + student.Adress);
-                Console.WriteLine("Passport\t: " + student.Passport);
-                Console.WriteLine("Age\t\t: " + student.Age);
-                Console.WriteLine("Telephone\t: " + student.Telehone);
-                Console.WriteLine("Rating\t\t: " + student.Rating);
-
-
-                Rating_write(Convert.ToInt32(Raiting));
-
-            }
-            public static int Rating_write(int R)
-            {
-                if (R > 75 && R < 90)
+                if (d.BookInCount < d.BookOutCount)
                 {
-                    Console.WriteLine("\nМожна вчитися краще");
-                return 3;
-
+                    Cut.Add(d);
+                }
             }
-            if (R < 75)
-                {
-                    Console.WriteLine("\nВарто бiльше уваги придiляти навчанню");
-                return 2;
-
-
-            }
-            if (R >= 90)
-                {
-                    Console.WriteLine("\nВiтаємо вiдмiнника");
-                return 1;
-
-            }
-            return 0;
+            Program.Show(Cut);
         }
-
+        public override int PairReturned(List<WorkingDay> Days)
+        {
+            //0
+            List<WorkingDay> Cut = new List<WorkingDay>();
+            int count = 0;
+            foreach (WorkingDay d in Days)
+            {
+                if (d.BookOutCount % 2 == 0 && d.BookInCount % 2 != 0)
+                {
+                    Cut.Add(d);
+                    count++;
+                }
+            }
+            Program.Show(Cut);
+            return count;
         }
     }
+    public class Program
+    {
 
+        static int TD = 25;
+        static int UTD = 5;
+        static void Main(string[] args)
+        {
+         
+            string path = "FILE.json";
+            List<WorkingDay> Days = ReadFile(path);
+            while (true)
+            {
+                Console.Clear();
+                Show(Days);
+                var k = Console.ReadKey().Key;
+                Console.Clear();
+                WorkingDay dd = new WorkingDay();
+                switch (k)
+                {
+                    case ConsoleKey.A:
+                        if (Days == null)
+                        {
+                            Days = new List<WorkingDay>();
+                            Days.Add(CreateNewDay());
+                        }
+                        else
+                        {
+                            Days.Add(CreateNewDay());
+                        }
+                        break;
+                    case ConsoleKey.D:
+                        DelteDay(Days);
+                        break;
+                    case ConsoleKey.C:
+                        ChangeData(Days);
+                        break;
+                    case ConsoleKey.Enter:
+                        return;
+                        break;
+                    case ConsoleKey.M:
+                        dd.MidlleBookMove(Days);
+                        break;
+                    case ConsoleKey.B:
+                        dd.CountOfBookMore(Days);
+                        Console.ReadKey();
+                        break;
+                    case ConsoleKey.P:
+                        dd.PairReturned(Days);
+                        break;
+
+                }
+                SaveFile(path, Days);
+            }
+
+        }
+        public static void Show(List<WorkingDay> a)
+        {
+            string LibName = "[ Lib Name ]";
+            string Adress = "[  Adress  ]";
+            string Date = "[   Date   ]";
+            string BookOut = "[Book out]";
+            string Bookin = "[Book in]";
+
+            Console.WriteLine(TopIndent(UTD) + Indent(TD) + LibName + Adress + Date + BookOut + Bookin);
+            if (a != null && a.Count > 0)
+            {
+                foreach (WorkingDay Day in a)
+                {
+                    Console.WriteLine(Indent(TD) + "[" + Day.Name + Indent(LibName.Length - 2 - Day.Name.Length) + "]"
+                        + "[" + Day.Address + Indent(Adress.Length - 2 - Day.Address.Length) + "]"
+                        + "[" + Day.Date.ToString("dd/MM/yyyy") + Indent(Date.Length - 2 - Day.Date.Date.ToString("dd/MM/yyyy").Length) + "]"
+                        + "[" + Day.BookOutCount + Indent(BookOut.Length - 2 - Day.BookOutCount.ToString().Length) + "]"
+                        + "[" + Day.BookInCount + Indent(Bookin.Length - 2 - Day.BookInCount.ToString().Length) + "]");
+                }
+            }
+            Console.WriteLine(TopIndent(1) + Indent(TD) + "Press [A - To add new day][D - Delete day][C - Change day]");
+            Console.WriteLine(Indent(TD) + "[M - The average movement of books per day for the period]");
+            Console.WriteLine(Indent(TD) + "[B - The number of days books were published than were returned]");
+            Console.WriteLine(Indent(TD) + "[P - Days when an even number of books are published and returned are odd]");
+        }
+        public static List<WorkingDay> ReadFile(string path)
+        {
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+            List<WorkingDay> Ret = new List<WorkingDay>();
+            Ret = JsonConvert.DeserializeObject<List<WorkingDay>>(File.ReadAllText(path));
+            return Ret;
+        }
+        public static void SaveFile(string path, List<WorkingDay> data)
+        {
+            string serialize = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
+            if (serialize.Count() > 1)
+            {
+                if (!File.Exists(path))
+                {
+                    File.Create(path).Close();
+                }
+                File.WriteAllText(path, serialize, Encoding.UTF8);
+            }
+        }
+        public static string Indent(int count)
+        {
+            if (count > 0)
+            {
+                return "".PadLeft(count);
+            }
+            return "";
+        }
+        public static string TopIndent(int count)
+        {
+            string a = "";
+            for (int i = 0; i < count; i++)
+            {
+                a += "\n";
+            }
+            return a;
+        }
+        public static WorkingDay CreateNewDay()
+        {
+            Console.Clear();
+            WorkingDay Day = new WorkingDay();
+            Console.WriteLine("Enter Name of library");
+            Day.Name = Console.ReadLine();
+            Console.WriteLine("Enter adress of library");
+            Day.Address = Console.ReadLine();
+            Console.WriteLine("Enter date of day like 01.02.2000");
+            Day.Date = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+            Console.WriteLine("Enter Book in count");
+            Day.BookInCount = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Enter Book out count");
+            Day.BookOutCount = Convert.ToInt16(Console.ReadLine());
+            return Day;
+        }
+        public static void DelteDay(List<WorkingDay> Days)
+        {
+            if (Days != null)
+            {
+                Console.WriteLine("Enter date of day that`s you want to delete");
+                var s = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+                Days.RemoveAll(x => x.Date == s);
+
+            }
+        }
+        public static void ChangeData(List<WorkingDay> Days)
+        {
+            Console.WriteLine("Enter date of day that`s you want to change");
+            var s = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+            WorkingDay day = Days.Find(x => x.Date == s);
+            if (day != null)
+            {
+                Console.WriteLine("Enter value of day that`s you want to change \n1)Name\n2)Adress\n3)Date like 01.02.2000\n4)Book Out\n5)Book In");
+                char a = Console.ReadKey().KeyChar;
+                Console.WriteLine("Enter new value");
+                switch (a)
+                {
+                    case '1':
+                        day.Name = Console.ReadLine();
+                        break;
+                    case '2':
+                        day.Address = Console.ReadLine();
+                        break;
+                    case '3':
+                        day.Date = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+                        break;
+                    case '4':
+                        day.BookOutCount = Convert.ToInt16(Console.ReadLine());
+                        break;
+                    case '5':
+                        day.BookInCount = Convert.ToInt16(Console.ReadLine());
+                        break;
+                }
+            }
+        }
+        //
+
+    }
+}
