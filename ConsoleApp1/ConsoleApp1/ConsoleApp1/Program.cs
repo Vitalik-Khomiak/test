@@ -11,11 +11,24 @@ namespace ConsoleApp1
 {
     interface test_inter
     {
-       public abstract string Indent(int count);
-       public abstract string TopIndent(int count);
+       string Indent(int count);
+       string TopIndent(int count);
     }
-    class Library : test_inter
+    abstract class Library : test_inter
     {
+        public abstract string Indent(int count);
+        public abstract string TopIndent(int count);
+        
+
+        public string Name { get; set; }
+        public string Address { get; set; }
+
+    }
+    class WorkingDay : Library
+    {
+        public DateTime Date { get; set; }
+        public int BookOutCount { get; set; }
+        public int BookInCount { get; set; }
         public override string Indent(int count)
         {
             if (count > 0)
@@ -33,16 +46,6 @@ namespace ConsoleApp1
             }
             return a;
         }
-
-        public string Name { get; set; }
-        public string Address { get; set; }
-
-    }
-    class WorkingDay : Library
-    {
-        public DateTime Date { get; set; }
-        public int BookOutCount { get; set; }
-        public int BookInCount { get; set; }
     }
     class Program 
     {
@@ -104,7 +107,7 @@ namespace ConsoleApp1
             string Date = "[   Date   ]";
             string BookOut = "[Book out]";
             string Bookin = "[Book in]"; 
-            Library lib = new Library();
+            Library lib = new WorkingDay();
            
                         Console.WriteLine(lib.TopIndent(UTD) + lib.Indent(TD) + LibName + Adress + Date + BookOut + Bookin);
             if (a != null && a.Count > 0)
