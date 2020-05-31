@@ -1,0 +1,30 @@
+﻿[
+  {
+    "name": "salat",
+    "price": "600",
+    "cooking_time": "15",
+    "gram": "135",
+    "kitchen": "French"
+  },
+  {
+    "name": "Water",
+    "price": "60",
+    "cooking_time": "0",
+    "gram": "500",
+    "kitchen": "International"
+  },
+  {
+    "name": "potato",
+    "price": "500",
+    "cooking_time": "25",
+    "gram": "455",
+    "kitchen": "French"
+  },
+  {
+    "name": "fish",
+    "price": "300",
+    "cooking_time": "45",
+    "gram": "350",
+    "kitchen": "Ukrainian"
+  }
+]
